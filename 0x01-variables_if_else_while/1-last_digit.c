@@ -1,8 +1,10 @@
+#include <stdlib.h>
+#include <time.h>
 #include <stdio.h>
 
 /**
  * main - main block
- * Description: Use `putchar` to print lowercase and then uppercase alphabet.
+ * Description: Print statements based on the last digit of the random number.
  * Return: 0
  */
 
@@ -10,35 +12,33 @@ int main(void)
 
 {
 
-	char c = 'a';
+	int n;
+
+	int m;
 
 
-	while (c <= 'z')
+	srand(time(0));
 
-	{
+	n = rand() - RAND_MAX / 2;
 
-		putchar(c);
-
-		c++;
-
-	}
+	m = n % 10;
 
 
-	c = 'A';
+	if (m > 5)
 
+		printf("Last digit of %i is %i and is greater than 5\n",
 
-	while (c <= 'Z')
+		       n, m);
 
-	{
+	else if (m == 0)
 
-		putchar(c);
+		printf("Last digit of %i is %i and is 0\n", n, m);
 
-		c++;
+	else
 
-	}
+		printf("Last digit of %i is %i and is less than 6 and not 0\n",
 
-
-	putchar('\n');
+		       n, m);
 
 
 	return (0);
